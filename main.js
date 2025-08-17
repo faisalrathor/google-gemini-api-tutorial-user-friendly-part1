@@ -13,18 +13,13 @@ const ai = new GoogleGenAI({ apiKey: "Your-API-Keys-Goes-Here" });
 
 async function main() {
 
-    try {
         const response = await ai.models.generateContent({
             model: "gemini-2.5-flash",
             contents: prompt,
         }).then((response) => {
             document.querySelector('main h1').innerText = response.text
         });
-
-    } catch (error) {
-
-    }
-    document.querySelector('body').classList.remove('loading');
+        document.querySelector('body').classList.remove('loading');
 }
 
 main();
